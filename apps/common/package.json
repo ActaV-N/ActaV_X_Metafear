@@ -1,0 +1,6 @@
+{
+  "name": "@monorepo/common",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "packageManager": "yarn@3.2.4"
+}
