@@ -16,10 +16,10 @@ jobs:
       - name: Changing working directory to backend
         working-directory: ./apps/backend
       - name: Test
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
+        uses: actions/checkout@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-        - run: yarn install
-        - run: yarn test
+        run: yarn install
+        run: yarn test
