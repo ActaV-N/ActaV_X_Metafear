@@ -7,22 +7,22 @@ on:
       - develop
 
 jobs:
+  strategy:
+    matrix:
+      node-version: [14.x, 16.x, 18.x]
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
     steps:
-      - name: Check out the code
+      - name: Check out code
         uses: actions/checkout@v3
-      - name: Set up node
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - name: Changing working directory to backend
-        working-directory: ./apps/backend
+      - name: Change working directory
+        run: cd apps/backend
       - name: Install dependencies
         run: yarn install
-      - name: test
+      - name: Run tests
         run: yarn test
