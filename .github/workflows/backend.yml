@@ -13,6 +13,9 @@ jobs:
       matrix:
         node-version: [14.x, 16.x, 18.x]
     steps:
+      - name: Changing working directory to backend
+        working-directory: /apps/backend
+      - name: Test
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
