@@ -25,6 +25,6 @@ jobs:
       - name: Change working directory
         run: cd apps/backend
       - name: Install dependencies
-        run: yarn install
+        run: npm install
       - name: Run tests
-        run: yarn test
+        run: npm run test
