@@ -16,19 +16,23 @@
 
 <nav>
   <div class="nav-wrapper">
-    <div class="logo-container">
-      <div class="logo-wrapper">
-        <a href="/">
-          <svelte:component this={logo} />
+    <div class="logo-container nav-item-container">
+      <div class="logo-wrapper nav-item-container">
+        <a href="/" class="anchor">
+          <div>
+            <svelte:component this={logo} />
+          </div>
         </a>
       </div>
     </div>
-    <div class="navi-container">
-      <div class="navi-wrapper">
+    <div class="navi-container nav-item-container">
+      <div class="navi-wrapper  nav-item-container">
         {#each links as link}
           <li>
-            <a href={link.href}>
-              {link.name}
+            <a href={link.href} class="anchor">
+              <div>
+                {link.name}
+              </div>
             </a>
           </li>
         {/each}
@@ -52,6 +56,10 @@
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
 
+    .nav-item-container {
+      height: 100%;
+    }
+
     .nav-wrapper {
       width: 85%;
       height: 100%;
@@ -60,6 +68,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
+      li {
+        height: 100%;
+      }
 
       a {
         text-decoration: none;
@@ -75,6 +87,14 @@
         &:hover {
           opacity: 1;
         }
+      }
+
+      .anchor {
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

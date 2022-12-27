@@ -6,9 +6,19 @@
   <title>Actav X Metafear</title>
 </svelte:head>
 
+<div class="hello">
+  <div class="hello-wrapper">
+    <div class="head">
+      <h1>Metafear</h1>
+      <p>두려움을 두려워하라.</p>
+    </div>
+    <div class="desc">도전 공유 커뮤니티, 메타피어입니다.</div>
+  </div>
+</div>
+
 <div class="carousel-container">
   <div class="carousel-wrapper">
-    <!-- <ScrollCarousel
+    <ScrollCarousel
       className="carousel"
       data={[
         {
@@ -24,19 +34,12 @@
           description: "Reading books",
         },
       ]}
-    /> -->
-    <div class="tmp-hello">
-      <div class="head">
-        <h1>Metafear</h1>
-        <p>두려움을 두려워하라.</p>
-      </div>
-      <div class="desc">도전 공유 커뮤니티, 메타피어입니다.</div>
-    </div>
+    />
   </div>
 </div>
 
 <style lang="scss">
-  .tmp-hello {
+  .hello {
     width: 100%;
     height: 100%;
     min-height: 100vh;
@@ -45,29 +48,34 @@
     flex-direction: column;
     justify-content: center;
 
-    .head {
-      margin-bottom: 20px;
+    .hello-wrapper {
+      width: 70%;
+      margin: 0 auto;
 
-      h1 {
-        font-weight: 400;
-        font-size: 7vw;
+      .head {
+        margin-bottom: 20px;
 
-        line-height: 0.9;
-        letter-spacing: -0.03em;
+        h1 {
+          font-weight: 400;
+          font-size: 7vw;
 
-        text-transform: uppercase;
+          line-height: 0.9;
+          letter-spacing: -0.03em;
+
+          text-transform: uppercase;
+        }
+        p {
+          font-weight: 400;
+          font-size: 3vw;
+
+          letter-spacing: 0.05em;
+        }
       }
-      p {
-        font-weight: 400;
-        font-size: 3vw;
 
-        letter-spacing: 0.05em;
+      .desc {
+        font-size: 2.5vw;
+        font-weight: 300;
       }
-    }
-
-    .desc {
-      font-size: 2.5vw;
-      font-weight: 300;
     }
   }
   .carousel-container {
