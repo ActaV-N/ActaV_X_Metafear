@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
+        yarn-version: "3.2.4"
 
     steps:
       - name: Check out code
@@ -21,9 +22,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          yarn-version: "3.2.4"
+          yarn-version: ${{ matrix.yarn-version }}
       - name: Change working directory
-        run: cd ./apps/backend
+        run: sudo cd ./apps/backend
       - name: Print working directory
         run: pwd
       - name: Run las
