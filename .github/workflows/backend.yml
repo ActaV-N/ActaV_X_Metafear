@@ -23,12 +23,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           yarn-version: ${{ matrix.yarn-version }}
-      - name: Print working directory
+      - name: Change working directory and setup
         working-directory: ./apps/backend
-        run: pwd
-      - name: Run las
-        run: ls -al
-      - name: Install dependencies
         run: yarn install
-      - name: Run tests
         run: yarn test
