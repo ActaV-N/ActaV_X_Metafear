@@ -23,6 +23,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Change working directory
         run: cd ./apps/backend
+      - nane: Print working directory
+        run: pwd
       - name: Install dependencies
         run: yarn install
       - name: Run tests
