@@ -23,9 +23,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           yarn-version: ${{ matrix.yarn-version }}
-      - name: Change working directory
-        run: sudo cd ./apps/backend
       - name: Print working directory
+        working-directory: ./apps/backend
         run: pwd
       - name: Run las
         run: ls -al
