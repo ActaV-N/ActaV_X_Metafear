@@ -25,6 +25,8 @@ jobs:
         run: cd ./apps/backend
       - name: Print working directory
         run: pwd
+      - name: Run las
+        run: ls -al
       - name: Install dependencies
         run: yarn install
       - name: Run tests
