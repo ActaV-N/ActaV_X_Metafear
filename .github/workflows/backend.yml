@@ -26,5 +26,7 @@ jobs:
       - name: Change working directory and setup
         working-directory: ./apps/backend
         run: |
+          pwd
+          ls -al
           yarn install
           yarn test
