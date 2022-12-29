@@ -4,4 +4,4 @@ import { AmwayService } from './amway.service';
 @Module({
   providers: [AmwayService]
 })
-export class AmwayModule  {}
+export class AmwayModule {}
