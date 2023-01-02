@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "URL" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "url" TEXT NOT NULL,
+    "needUpdate" BOOLEAN DEFAULT false
+);

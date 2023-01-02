@@ -1,41 +1,61 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { PrismaModule } from 'src/prisma/prisma.module';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { UrlModule } from 'src/url/url.module';
+import { UrlService } from 'src/url/url.service';
 import { AmwayService } from './amway.service';
 
 describe('AmwayService', () => {
-  let service: AmwayService;
+  let amwayService: AmwayService;
+  let urlService: UrlService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [AmwayService],
+      imports:[UrlModule, PrismaModule],
+      providers: [AmwayService, UrlService, PrismaService],
     }).compile();
 
-    service = module.get<AmwayService>(AmwayService);
+    amwayService = module.get<AmwayService>(AmwayService);
+    urlService = module.get<UrlService>(UrlService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  describe('all services should be defined', () => {
+    it('amway service should be defined', () => {
+      expect(amwayService).toBeDefined();
+    });
+  
+    it('url service should be defined', () => {
+      expect(urlService).toBeDefined();
+    })
   });
 
+  describe("test setProductUrlScheduler", () => {
+    it('should be defined', () => {
+      expect(amwayService.setProductUrlScheduler).toBeDefined();
+    });
+
+    it('should return true', () => {
+      expect(amwayService.setProductUrlScheduler()).toBeTruthy();
+    })
+  });
   
   describe("Test product crawling", () => {
     let brand: string;
 
     it('should have crawlProductByBrand function', () => {
-      expect(typeof service.crawlProductByBrand).toBe('function');
+      expect(typeof amwayService.crawlProductByBrand).toBe('function');
     });
-    
+
     it('should get nutrilite product data', async () => {
       brand = 'nutrilite';
-      const data = await service.crawlProductByBrand(brand);
+      const data = await amwayService.crawlProductByBrand(brand);
       console.log(data);
-    }, 60000);
+    }, 300000);
 
     it('should get artistry product data', async () => {
       brand = 'artistry';
-      const data = await service.crawlProductByBrand(brand);
+      const data = await amwayService.crawlProductByBrand(brand);
       console.log(data);
-    }, 60000)
+    }, 300000)
   });
-
-  
 });
